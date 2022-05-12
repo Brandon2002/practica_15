@@ -3,7 +3,7 @@ let app = express();
 let PORT = process.env.PORT || 3000; //Puerto donde el servidor va a "escuchar" la petición
 app.use('/assets', express.static(__dirname + '/public')); //contenido estático
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false })); 
 
 app.set('view engine', 'ejs');
 
@@ -26,9 +26,9 @@ app.post('/student', (req, res) => { //Vista student en donde se obtendrán los 
 res.send(`First Name es: ${req.body.fname} <br> Last Name es: ${req.body.lname}`); //Estructura de como se enviarán los valores
 });
 
-app.post('/personjson', express.json({type: '*/*'}), (req, res) => { //Vista student en donde se obtendrán los valores y se enviarán al index para guardarlos
+app.post('/personjson', express.json({type: '*/*'}), (req, res) => { //Al iniciar student en el servidor, en conjunto, en la consola se imprimen los valores.
     console.log('El objeto contiene:', (req.body));
-    console.log('Nombre:', (req.body.firstname));
+    console.log('Nombre:', (req.body.firstname));   //Lo que se imprimirá en la consola.
     console.log('Apellido:', (req.body.lastname));
     });
 
